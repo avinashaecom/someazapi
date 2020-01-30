@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "3c3f8761-8892-497d-823f-8b79bccfedd9",
+		"name": "Azure DEV GNG API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{api}}/ping",
+					"host": [
+						"{{url}}{{api}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All GNGs in the System",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{api}}/gonogo",
+					"host": [
+						"{{url}}{{api}}"
+					],
+					"path": [
+						"gonogo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get GNG by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{api}}/gonogo/{{id}}",
+					"host": [
+						"{{url}}{{api}}"
+					],
+					"path": [
+						"gonogo",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create GNG Record",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"OpportunityId\": \"OPPO-00102\",\n \"CreatedBy\":\"jake.white@aecom.com\",\n \"FormData\":\"{ \\\"Criteria#\\\":\\\"1\\\",\\\"Title\\\": \\\"Title#1\\\",\\\"Description\\\": \\\"Sample Description#1\\\", \\\"RGYStatus\\\": \\\"GREEN\\\",\\\"Actionr\\\": \\\"Moved to GREEN\\\", \\\"DueDate\\\": \\\"2020-01-22\\\", \\\"PersonResponsible\\\": \\\"Vanitha,K\\\"},{\\\"Criteria#\\\":\\\"2\\\", \\\"Title\\\": \\\"Title#1\\\", \\\"Description\\\": \\\"Sample Description#2\\\", \\\"RGYStatus\\\": \\\"RED\\\", \\\"Actionr\\\": \\\"Moved to GREEN\\\", \\\"DueDate\\\": \\\"2020-01-22\\\", \\\"PersonResponsible\\\": \\\"Vanitha,K\\\"} \", \n \n \"GNGStatusId\":1\n \n }\n  "
+				},
+				"url": {
+					"raw": "{{url}}{{api}}/gonogo",
+					"host": [
+						"{{url}}{{api}}"
+					],
+					"path": [
+						"gonogo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update GNG by Id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"OpportunityId\": \"OPPO-0012\",\n \"LastModifiedBy\":\"susam.sarkar@aecom.com\",\n \"CreatedBy\":\"Michael.Wolf@aecom.com\",\n \"FormData\":\"{ \\\"Criteria#\\\":\\\"1\\\",\\\"Title\\\": \\\"Title#1\\\",\\\"Description\\\": \\\"Sample Description#1\\\", \\\"RGYStatus\\\": \\\"GREEN\\\",\\\"Actionr\\\": \\\"Moved to GREEN\\\", \\\"DueDate\\\": \\\"2020-01-22\\\", \\\"PersonResponsible\\\": \\\"Vanitha,K\\\"}\",\n \"GNGStatusId\":2,\n \"Id\":105\n }"
+				},
+				"url": {
+					"raw": "{{url}}{{api}}/gonogo/105",
+					"host": [
+						"{{url}}{{api}}"
+					],
+					"path": [
+						"gonogo",
+						"105"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get GNGs by Opportunity Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{api}}/gonogo/byopportunityid/OPPO-0012",
+					"host": [
+						"{{url}}{{api}}"
+					],
+					"path": [
+						"gonogo",
+						"byopportunityid",
+						"OPPO-0012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Opportunity GNGs by Oppy Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}{{api}}/opportunity/OPPO-0012/gonogo",
+					"host": [
+						"{{url}}{{api}}"
+					],
+					"path": [
+						"opportunity",
+						"OPPO-0012",
+						"gonogo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auth Token (local JWT)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "notjow",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Email\": \"jake.white@aecom.com\"}\n"
+				},
+				"url": {
+					"raw": "https://localhost:44331/api/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44331",
+					"path": [
+						"api",
+						"token"
+					]
+				},
+				"description": "Generally a disabled function -- for dev purposes"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4521c54b-95a8-408a-9025-3f53faefe3b3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0a6b54b2-b020-4906-9c4a-4a6e7397f9fc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

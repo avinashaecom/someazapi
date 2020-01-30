@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AECOM.GNGApi</name>
+    </assembly>
+    <members>
+        <member name="M:AECOM.GNGApi.Controllers.GoNoGoController.PutGoNoGo(System.String,AECOM.GNGApi.Models.GoNoGo)">
+            <summary>
+            Prupose: UPDATE "Existing" GNG record for opportunityId 
+            HttpVerb:PUT
+            Input: (MUST) OpportunityId in URI and actual GNG Record as a Body of request 
+            GNG Record MUST to have Id 
+            Content-Type:Application/json
+            Output: Http Resonse Status 
+            example: https://myserverurl/api/v1/byopId/OPPO-004
+            </summary>
+            <param name="oppoId"></param>
+            <param name="goNoGo"></param>
+            <returns>HTTP Operation StatusStatus</returns>
+        </member>
+        <member name="M:AECOM.GNGApi.Controllers.GoNoGoController.PutByIdGoNoGo(System.Int32,AECOM.GNGApi.Models.GoNoGo)">
+            <summary>
+            Prupose: UPDATE "Existing" GNG record for Id 
+            HttpVerb:PUT
+            Input: (MUST) Id in URI and actual GNG Record as a Body of request 
+            GNG Record MUST to have Id 
+            Content-Type:Application/json
+            Output: Http Response Status 
+            example: https://myserverurl/api/v1/bygngId/8
+            </summary>
+            <param name="Id">Part of URI</param>
+            <param name="goNoGo">part of body</param>
+            <returns>HTTP Operation StatusStatus</returns>
+        </member>
+        <member name="M:AECOM.GNGApi.Controllers.GoNoGoController.PostGoNoGo(AECOM.GNGApi.Models.GoNoGo)">
+            <summary>
+            Prupose: UPDATE "Existing" GNG record for opportunityId 
+            HttpVerb:POST
+            Input: GNG Record as a Body of request 
+            GNG Record MUST to have 
+            Id - int
+            CreatedBy - user email address as a string
+            FormData - JSON string equivalent of GNG Record [Refer PoerApp Screen#2]
+            GngStatusId - int 
+            Content-Type:Application/json
+            Output: JSON for newly created GNG record 
+            example: https://myserverurl/api/v1/byopId/OPPO-004
+            </summary>
+            /// 
+            <param name="goNoGo">part of request body</param>
+            <returns>HTTP Operation StatusStatus</returns>
+        </member>
+    </members>
+</doc>
